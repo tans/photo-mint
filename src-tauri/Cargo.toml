@@ -1,0 +1,25 @@
+[package]
+name = "photomint"
+version = "0.0.0"
+description = "Simple Photo Editor"
+authors = ["tans"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-beta", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0-beta", features = [
+    "protocol-asset",
+    "macos-private-api",
+] }
+tauri-plugin-shell = "2.0.0-beta"
+tauri-plugin-fs = "2.0.0-beta"
+serde_json = "1.0"
+window-vibrancy = "0.4.3"
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

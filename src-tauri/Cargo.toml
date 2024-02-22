@@ -1,6 +1,6 @@
 [package]
 name = "photomint"
-version = "0.0.0"
+version = "0.1.0"
 description = "Simple Photo Editor"
 authors = ["tans"]
 edition = "2021"

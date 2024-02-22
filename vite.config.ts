@@ -3,17 +3,19 @@ import react from "@vitejs/plugin-react";
 
 import path from "path";
 // https://vitejs.dev/config/
+// optimizeDeps: {
+//   exclude: [
+//     "@jsquash/avif",
+//     "@jsquash/jpeg",
+//     "@jsquash/jxl",
+//     "@jsquash/png",
+//     "@jsquash/oxipng",
+//     "@jsquash/webp",
+//     "@radix-ui",
+//   ],
+// },
 export default defineConfig(async () => ({
-  optimizeDeps: {
-    exclude: [
-      "@jsquash/avif",
-      "@jsquash/jpeg",
-      "@jsquash/jxl",
-      "@jsquash/png",
-      "@jsquash/oxipng",
-      "@jsquash/webp",
-    ],
-  },
+
   plugins: [react()],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`

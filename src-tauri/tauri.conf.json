@@ -1,6 +1,6 @@
 {
   "productName": "PhotoMint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "identifier": "xin.minapp.mint",
   "build": {
     "beforeDevCommand": "npm run dev",

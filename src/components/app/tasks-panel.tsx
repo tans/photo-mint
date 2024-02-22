@@ -43,13 +43,17 @@ export default function TasksPanel(props) {
         </div>
         <div className="mx-1 flex-1 text-sm">
           <div>{file.name}</div>
-          <div>
-            <span>原大小{formatFileSize(file.osize)}</span>
+          <div className="text-xs font-black">
+            <span>原始大小{formatFileSize(file.osize)}</span>
             <span className="ml-4">处理后{formatFileSize(file.nsize)}</span>
           </div>
         </div>
         <div className="flex items-center">
-          <div></div>
+          {file.nsize && (
+            <div className="font-black text-green-700">
+              -{Math.round(((file.osize - file.nsize) / file.osize) * 100)} %
+            </div>
+          )}
           {/* <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>

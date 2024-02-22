@@ -10,10 +10,15 @@ import { listen } from "@tauri-apps/api/event";
 import { basename, extname } from "@tauri-apps/api/path";
 import { convertFileSrc } from "@tauri-apps/api/core";
 
-import * as jpg from "https://unpkg.com/@jsquash/jpeg?module";
-import * as png from "https://unpkg.com/@jsquash/png?module";
-import * as oxipng from "https://unpkg.com/@jsquash/oxipng?module";
-import * as webp from "https://unpkg.com/@jsquash/webp?module";
+import * as jpg from "@jsquash/jpeg";
+import * as png from "@jsquash/png";
+import * as oxipng from "@jsquash/oxipng";
+import * as webp from "@jsquash/webp";
+
+// import * as jpg from "https://unpkg.com/@jsquash/jpeg?module";
+// import * as png from "https://unpkg.com/@jsquash/png@2.2.0?module";
+// import * as oxipng from "https://unpkg.com/@jsquash/oxipng?module";
+// import * as webp from "https://unpkg.com/@jsquash/webp?module";
 
 let compressors = {
   jpg: jpg,
@@ -31,10 +36,10 @@ export default function Editor() {
   };
 
   useEffect(() => {
-    const unlisten = listen("tauri://file-drop", async function(event) {
+    const unlisten = listen("tauri://file-drop", async function (event) {
       console.log(params);
       let newFiles = await Promise.all(
-        event.payload.paths.map(async function(path) {
+        event.payload.paths.map(async function (path) {
           // const options = {
           //   maxSizeMB: 1,
           //   maxWidthOrHeight: 1920,

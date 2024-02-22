@@ -1,23 +1,21 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-
+import moduleWorkerChunkPlugin from "./vite-plugin.js";
 import path from "path";
 // https://vitejs.dev/config/
-// optimizeDeps: {
-//   exclude: [
-//     "@jsquash/avif",
-//     "@jsquash/jpeg",
-//     "@jsquash/jxl",
-//     "@jsquash/png",
-//     "@jsquash/oxipng",
-//     "@jsquash/webp",
-//     "@radix-ui",
-//   ],
-// },
+
 export default defineConfig(async () => ({
-
-  plugins: [react()],
-
+  plugins: [moduleWorkerChunkPlugin(), react()],
+  optimizeDeps: {
+    exclude: [
+      "@jsquash/avif",
+      "@jsquash/jpeg",
+      "@jsquash/jxl",
+      "@jsquash/png",
+      "@jsquash/oxipng",
+      "@jsquash/webp",
+    ],
+  },
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //
   // 1. prevent vite from obscuring rust errors
